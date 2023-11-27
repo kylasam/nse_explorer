@@ -1,0 +1,326 @@
+version: 2
+
+models:
+  - name: stg_investments_kasthuri_ka_arruchamy_chit
+    description: "Chit installments for Appa started with kasthuri akka"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_kasthuri_ka_colleage_staff_chit
+    description: "Chit installments for Parthibhan sir kasthuri akka's collage colleague"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_kasthuri_ka_komala_mam_chit
+    description: "Chit installments for Komala Mam kasthuri akka's collage colleague"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_manjula_chit
+    description: "Chit installments for manju akka"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_shanker_chit
+    description: "Chit installments for Shanker Anna chit from Jayashree"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_sharath_chit
+    description: "Chit installments for Sharath BOI"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 5 for all chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investmentsgold
+    description: "Chit installments for Gold chits."
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 2 for all Gold chit types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee Thangamayil at https://www.thangamayil.com/scheme/index/rateshistory/"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique              
+      - name: chit_amount
+        data_type: integer
+        description: "Total chit amount that has been aggreed with the chit holder."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_insurance_KA51HC3151
+    description: "Insurance Premium schedule for HONDA GRAZIA bike 2-Wheeler"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 6 for all Insurance types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique     
+      - name: policy_number
+        data_type: STRING
+        description: "Unique policy number which changes on Yearly/once in specific timeframe"
+        tests:
+          - unique           
+      - name: premium_amount
+        data_type: integer
+        description: "Total premium amount that has been charged from the insuracne company."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_edelweisstokio
+    description: "Insurance Premium schedule for Returns with Edelweiss tokio on Yearly payment."
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 6 for all Insurance types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique     
+      - name: policy_number
+        data_type: STRING
+        description: "Unique policy number which changes on Yearly/once in specific timeframe"
+        tests:
+          - unique           
+      - name: plan_name
+        data_type: STRING
+        description: "Insurance policy Name"
+        tests:
+          - not_null
+      - name: premium_amount
+        data_type: integer
+        description: "Total premium amount that has been charged from the insuracne company."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_investments_lic
+    description: "Insurance Premium schedule for Returns with LIC"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 6 for all Insurance types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique     
+      - name: policy_number
+        data_type: STRING
+        description: "Unique policy number which changes on Yearly/once in specific timeframe"
+        tests:
+          - unique           
+      - name: agency_code
+        data_type: integer
+        description: "Agency code number with whom the policy was bind"
+        tests:
+          - not_null
+      - name: premium_amount
+        data_type: integer
+        description: "Total premium amount that has been charged from the insuracne company."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_maxlife_term_insurance
+    description: "Insurance Premium schedule for TERM Insurance with MAX LIFE"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 6 for all Insurance types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique     
+      - name: policy_number
+        data_type: STRING
+        description: "Unique policy number which changes on Yearly/once in specific timeframe"
+        tests:
+          - unique           
+      - name: plan_name
+        data_type: STRING
+        description: "Insurance policy Name"
+        tests:
+          - not_null
+      - name: premium_amount
+        data_type: integer
+        description: "Total premium amount that has been charged from the insuracne company."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
+  - name: stg_expenses_monthly
+    description: "Regular Monthly Expenses"
+    columns:
+      - name: investment_code
+        data_type: integer
+        description: "Investment code 10 for Regular Expense types "
+        tests:
+          - not_null
+      - name: src_sys_id
+        data_type: integer
+        description: "Sub source type specific to investee"
+      - name: month_start_date
+        data_type: DATE
+        description: "Start date of Month for all months in a year from 2016 till 2071"
+        tests:
+          - unique     
+      - name: expenses_amount
+        data_type: integer
+        description: "Total Monthly expenses amount that has been charged from the insuracne company."
+        tests:
+          - not_null
+      - name: edw_publn_id
+        data_type: timestamp
+        description: "Enterprise datawarehouse timestamp when the record is written into system"
