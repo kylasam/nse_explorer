@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: MONTHLY_EXPENSES_SOURCE
+    database: kylash-edw
+    schema: raw_layer
+    loader: internal_table
+    tables:
+      - name: dates_mnthly
+        description: "This table contains dates from 2019-01 till 2050-12 with all first dates in a month."
+        tags: ["internal_table", "expenses", "kylash"]
+        meta:
+          owner: "@kylashpriya"
+        domain:
+          - BI_FAMILY_EXPENSES
+        columns:
+          - name: month_start_date
+            data_type: STRING
+            description: Contains rows of dates with first dats of eah months from 2019 till 2050.
+          

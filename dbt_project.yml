@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'edw'
 version: '1.0.0'
 config-version: 2
 
@@ -36,7 +36,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
+  edw:
     # Applies to all files under models/example/
-    example:
+    staging_layer:
+      +labels:
+        domain: investments
       +materialized: table
+    business_layer:
+      +materialized: table
+    reporting_layer:
+      +materialized: view

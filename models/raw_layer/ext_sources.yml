@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: GOOGLESHEETS
+    database: kylash-edw
+    schema: raw_layer
+    loader: eternal_table
+    tables:
+      - name: nifty_googlefinance
+        description: "External table points to googlesheet https://docs.google.com/spreadsheets/d/11PcEQN_U-azQgQmHIedHuNY-AnDDeojF_LAvLBmKIZw/edit#gid=184537469"
+        tags: ["external_table", "gsheets", "bi"]
+        meta:
+          owner: "@kylashpriya"
+        domain:
+          - BI_CORE
+        columns:
+          - name: TICKER
+            data_type: STRING
+            description: The ticker symbol for the security to consider. It's mandatory to use both the exchange symbol and ticker symbol for accurate results and to avoid discrepancies.
+          - name: TICKER_- NAME
+            data_type: STRING
+            description: TICKER - NAME from the NSE for TICKER
+          - name: PREV_DAY_CLOSE_PRICE
+            data_type: FLOAT
+            description: Yesterday's close amount value
+          - name: OPEN_PRICE_2DAY
+            data_type: FLOAT
+            description: The price as of market open.
+          - name: HIGH_PRICE_2DAY
+            data_type: FLOAT
+            description: The current day's high price.
+          - name: LOW_PRICE_2DAY
+            data_type: FLOAT
+            description: The current day's low price.
+          - name: PRICE_2DAY
+            data_type: FLOAT
+            description: Real-time price quote delayed by up to 20 minutes
+          - name: PRICE_52W_HIGH
+            data_type: FLOAT
+            description: The 52-week high price
+          - name: PRICE_52W_LOW
+            data_type: FLOAT
+            description: The 52-week low price
+          - name: PRICE_CNG_SINCE_PREV_CLOSE
+            data_type: NUMERIC
+            description: The price change since the previous trading day's close.
+          - name: PRICE_CNG_SINCE_PREV_CLOSE_PERCENT
+            data_type: NUMERIC
+            description: The percentage change in price since the previous trading day's close.
