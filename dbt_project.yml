@@ -15,7 +15,13 @@ profile: 'default'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
+seeds:
+  seeds:
+    +enabled: true
+    +tags: investment_codes,codes
+    +schema: "{{ target.database if target.name == 'dev' or target.name == 'default' else 'lookup' }}"
+    +persist_docs: true
+    +full_refresh: true
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 

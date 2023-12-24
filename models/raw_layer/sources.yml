@@ -17,4 +17,332 @@ sources:
           - name: month_start_date
             data_type: STRING
             description: Contains rows of dates with first dats of eah months from 2019 till 2050.
-          
+      - name: investments_bonds
+        description: "This table contains data on all invested bonds from GoldenPi and other platforms."
+        tags: ["bonds", "investments", "kylash"]
+        meta:
+          owner: "@kylashpriya"
+        domain:
+          - BI_FAMILY_EXPENSES
+        columns:
+          - name: investment_code
+            data_type: INTEGER
+            description: "The code associated with the investment"
+          - name: invest_platform
+            data_type: STRING
+            description: "The platform where the investment is made"
+          - name: issurer
+            data_type: STRING
+            description: "The issuer company name of the investment"
+          - name: sector
+            data_type: STRING
+            description: "The sector associated with the investment"
+          - name: issurer_domain
+            data_type: STRING
+            description: "The domain of the issuer"
+          - name: isin
+            data_type: STRING
+            description: "The International Securities Identification Number (ISIN) of the investment"
+          - name: total_investment
+            data_type: FLOAT
+            description: "The total investment amount"
+          - name: deposit_period_days
+            data_type: INTEGER
+            description: "The period of deposit in days"
+          - name: start_date
+            data_type: DATE
+            description: "The start date of the investment"
+          - name: end_date
+            data_type: DATE
+            description: "The end date of the investment"
+          - name: rate_of_interest
+            data_type: FLOAT
+            description: "The rate of interest associated with the investment"
+          - name: maturity_amt
+            data_type: FLOAT
+            description: "The maturity amount of the investment"
+          - name: units
+            data_type: INTEGER
+            description: "The number of investment units"
+      - name: investments_fd
+        description: "This table contains data on all invested Fixed deposits from various Banks."
+        tags: ["fd", "investments", "kylash"]
+        meta:
+          owner: "@kylashpriya"
+        domain:
+          - BI_FAMILY_EXPENSES
+        columns:
+          - name: investment_code
+            description: "The code associated with the investment"
+            tests:
+              - not_null
+          - name: BANK_NAME
+            description: "The name of the bank associated with the investment"
+          - name: DEPOSIT_AMOUNT
+            description: "The amount deposited for the investment"
+          - name: DEPOSIT_PERIOD_DAYS
+            description: "The period of deposit in days"
+          - name: start_date
+            description: "The start date of the investment"
+          - name: end_date
+            description: "The end date of the investment"
+          - name: rate_of_interest
+            description: "The rate of interest associated with the investment"
+          - name: Maturity_amt
+            description: "The maturity amount of the investment"
+      - name: investments_gold
+        description: "This table contains data on all invested Gold from Gold chits and other investements."
+        tags: ["gold", "investments", "kylash"]
+        meta:
+          owner: "@kylashpriya"
+        domain:
+          - BI_FAMILY_EXPENSES
+        columns:
+          - name: investment_code
+            description: "The code associated with the investment"
+            tests:
+              - not_null
+          - name: investment_type
+            description: "The type of investment"
+          - name: shop_name
+            description: "The name of the shop or establishment"
+          - name: total_investment
+            description: "The total amount of the investment"
+          - name: deposit_period_days
+            description: "The period of deposit in days"
+          - name: start_date
+            description: "The start date of the investment"
+          - name: end_date
+            description: "The end date of the investment"
+          - name: total_gms
+            description: "The total grams associated with the investment"
+      - name: interest_payouts_monthly  # Replace with your table name
+        columns:
+          - name: Date
+            description: "Date of interest payout"
+            tests:
+              - not_null
+          - name: investment_code
+            description: "Code for the investment"
+            tests:
+              - not_null
+          - name: issurer
+            description: "Issuer name who credits interests"
+            tests:
+              - not_null
+          - name: face_Value
+            description: "Face value of investment"
+            tests:
+              - not_null
+          - name: interest_Amount
+            description: "Interest amount on monthly basis"
+            tests:
+              - not_null
+          - name: total_Amount
+            description: "Total amount of the investment with sum of interest and face value"
+            tests:
+              - not_null
+          - name: remarks
+            description: "Remarks for the investment"
+      - name: equity_wallet_balance_5paisa  # Replace with your table name
+        description: API results for the available Wallet balance to perform the trade.
+        columns:
+          - name: ALB
+            description: "Ledger Balance at the beginning of the day"
+            data_type: numeric
+          - name: Adhoc
+            description: "Adhoc margin provided to customer for the day"
+            scale: 2
+          - name: AvailableMargin
+            description: "Actual Available margin available to the customer for trading"
+            tests:
+              - not_null: {}
+            data_type: numeric
+          - name: GHV
+            description: "Gross Holding Value"
+            data_type: numeric
+          - name: GHVPer
+            description: "Gross Holding Value Cover %"
+            data_type: numeric
+          - name: GrossMargin
+            description: "Gross Margin of the customer"
+            data_type: numeric
+          - name: Mgn4PendOrd
+            description: "Margin blocked for pending orders"
+            data_type: numeric
+          - name: Mgn4Position
+            description: "Margin blocked for open positions"
+            data_type: numeric
+          - name: OptionsMtoMLoss
+            description: "Margin blocked for M2M loss in Options position"
+            data_type: numeric
+          - name: Payments
+            description: "Any funds withdrawn from 5paisa today"
+            data_type: numeric
+          - name: Receipts
+            description: "Any funds added to the ledger today"
+            data_type: numeric
+          - name: THV
+            description: "Total Holding Value"
+            data_type: numeric
+          - name: PDHV
+            description: "Adjusted Holding Value post any applicable Haircut"
+            data_type: numeric
+          - name: edw_publn_id
+            description: "Timestamp"
+            data_type: timestamp
+      - name: equity_holdings_5paisa  # Replace with your table name
+        description: "This function is used to provide athe client’s holdings as of beginning of the day."
+        columns:
+          - name: Exch
+            description: "Gets the Exchange of the scrip (N-Nse,B-Bse)"
+            data_type: string  # Change data type as per your need
+          - name: ExchType
+            description: "Exchange segment of the scrip (C-Cash,D-Derivative,U-Currency)"
+            data_type: string  # Change data type as per your need
+          - name: NseCode
+            description: "NSE Scrip Code"
+            data_type: int64  # Change data type as per your need
+          - name: BseCode
+            description: "BSE Scrip Code"
+            data_type: int64  # Change data type as per your need
+          - name: Symbol
+            description: "Symbol of the scrip"
+            data_type: string  # Change data type as per your need
+          - name: FullName
+            description: "Full Name of that Scrip"
+            data_type: string  # Change data type as per your need
+          - name: Quantity
+            description: "Available BOD quantity"
+            data_type: int64  # Change data type as per your need
+          - name: CurrentPrice
+            description: "Current price of the share (symbol)"
+            data_type: float64  # Change data type as per your need
+          - name: PoolQty
+            description: "Quantity of that scrip in Broker Beneficiary account"
+            data_type: int64  # Change data type as per your need
+          - name: DPQty
+            description: "Quantity of that Scrip in Client’s DP account"
+            data_type: int64  # Change data type as per your need
+          - name: POASigned
+            description: "Whether POA is Signed"
+            data_type: string  # Change data type as per your need
+          - name: edw_publn_id
+            description: "Timestamp"
+            data_type: timestamp  # Change data type as per your need
+      - name: equity_marketdepth_5paisa  # Replace with your table name
+        description: "This table holds all the Markdepth?current prces for the stocks"
+        columns:
+          - name: AverageTradePrice
+            description: "Pass the AverageTradePrice."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: BuyQuantity
+            description: "Pass the BuyQuantity."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: Close
+            description: "Pass the Close."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: Exchange
+            description: "Pass the Exchange."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: ExchangeType
+            description: "Pass the ExchangeType."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: High
+            description: "Pass the High."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: LastQuantity
+            description: "Pass the LastQuantity."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: LastTradeTime
+            description: "Pass the LastTradeTime."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: LastTradedPrice
+            description: "Pass the LastTradedPrice."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: Low
+            description: "Pass the Low."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: NetChange
+            description: "Pass the NetChange."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: Open
+            description: "Pass the Open."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: OpenInterest
+            description: "Pass the OpenInterest."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: ScripCode
+            description: "Pass the ScripCode."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: SellQuantity
+            description: "Pass the SellQuantity."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: TotalBuyQuantity
+            description: "Pass the TotalBuyQuantity."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: TotalSellQuantity
+            description: "Pass the TotalSellQuantity."
+            data_type: numeric
+            tests: 
+              - not_null
+
+          - name: Volume
+            description: "Pass the Volume."
+            data_type: string
+            tests:
+              - not_null
+
+          - name: edw_publn_id
+            description: "Timestamp"
+            data_type: timestamp
+            tests: 
+              - not_null

@@ -1,0 +1,10 @@
+investment_code,description,is_active,last_updated_ts
+8,Land,true,2023-11-27 13:18:52.205364 UTC
+5,Chit,true,2023-11-27 13:18:52.205364 UTC
+1,FixedDeposits,true,2023-11-27 13:18:52.205364 UTC
+6,Insurances,true,2023-11-27 13:18:52.205364 UTC
+3,MutualFunds,true,2023-11-27 13:18:52.205364 UTC
+7,Equity,true,2023-11-27 13:18:52.205364 UTC
+4,Bonds,true,2023-11-27 13:18:52.205364 UTC
+2,Gold,true,2023-11-27 13:18:52.205364 UTC
+9,PostOffice,false,2023-11-30 13:56:52.205364 UTC
