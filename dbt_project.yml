@@ -44,11 +44,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   edw:
     # Applies to all files under models/example/
+    raw_layer:
+      +schema: "{{ target.database if target.name == 'dev' or target.name == 'Prod' else 'raw_layer' }}"
+      +labels:
+        domain: investments
+      +materialized: table
     staging_layer:
+      +schema: "{{ target.database if target.name == 'dev' or target.name == 'Prod' else 'staging_layer' }}"
       +labels:
         domain: investments
       +materialized: table
     business_layer:
+      +schema: "{{ target.database if target.name == 'dev' or target.name == 'Prod' else 'business_layer' }}"
       +materialized: table
     reporting_layer:
+      +schema: "{{ target.database if target.name == 'dev' or target.name == 'Prod' else 'reporting_layer' }}"
       +materialized: view
