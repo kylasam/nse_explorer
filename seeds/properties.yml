@@ -1,0 +1,33 @@
+version: 2
+
+seeds:
+  - name: investment_channels_codes
+    config:
+      quote_columns: false
+      column_types:
+        investment_code: INTEGER
+        description: STRING
+        is_active: BOOLEAN
+        last_updated_ts: TIMESTAMP
+      delimiter: ","
+  - name: investment_lands
+    config:
+      quote_columns: false
+      column_types:
+        investment_code: INTEGER
+        property_type: STRING
+        area_in_cents: NUMERIC
+        district: STRING
+        town: STRING
+        latitude: NUMERIC
+        longitude: NUMERIC
+      delimiter: ","
+  - name: equity_5paisa_script_codes
+    config:
+      quote_columns: false
+      column_types:
+        Exch: STRING
+        ExchType: STRING
+        Scripcode: NUMERIC
+        Name: STRING
+      delimiter: ","
