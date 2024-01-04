@@ -346,3 +346,30 @@ sources:
             data_type: timestamp
             tests: 
               - not_null
+      - name: thangamayil_gold_rates
+        description: "This table holds data on daily gold rates scrapped from thangamail website"
+        columns:
+          - name: last_updated_webpage
+            description: "Last time the webpage was updated with the latest price"
+            tests:
+              - not_null
+          - name: gold_price_18k
+            description: "Gold price for 1 gram of 18k Purity"
+            tests:
+              - not_null
+          - name: gold_price_22k
+            description: "Gold price for 1 gram of 22k Purity"
+            tests:
+              - not_null
+          - name: gold_price_24k
+            description: "Gold price for 1 gram of 24k Purity"
+            tests:
+              - not_null
+          - name: silver_price_per_gram
+            description: "Silver price per gram"
+            tests:
+              - not_null
+          - name: inserted_timestamp
+            description: "Enterprise data warehouse timestamp when the record was inserted"
+            tests:
+              - not_null
