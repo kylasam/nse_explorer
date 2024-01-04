@@ -21,7 +21,6 @@ seeds:
     +tags: investment_codes,codes
     lookup:
       +schema: "{{ target.database if target.name == 'default' else 'lookup' }}"
-    +full_refresh: true
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
