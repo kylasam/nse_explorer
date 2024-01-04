@@ -20,7 +20,7 @@ seeds:
     +enabled: true
     +tags: investment_codes,codes
     lookup:
-      +schema: "{{ target.database if target.name == 'default' else 'lookup' }}"
+      +schema: "{{ target.dataset if target.name == 'default' else 'lookup' }}"
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
