@@ -16,11 +16,11 @@ model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seeds:
-  seeds:
+  edw:
     +enabled: true
     +tags: investment_codes,codes
-    +schema: "{{ target.database if target.name == 'default' else 'lookup' }}"
-    +persist_docs: true
+    lookup:
+      +schema: "{{ target.database if target.name == 'default' else 'lookup' }}"
     +full_refresh: true
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
