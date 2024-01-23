@@ -1,0 +1,40 @@
+with 
+
+source as (
+
+    select * from `kylash-edw`.`raw_layer`.`nifty_googlefinance`
+
+),
+
+renamed as (
+    SELECT TICKER,
+       TICKER_NAME,
+       CASE 
+           WHEN upper(TICKER_NAME) LIKE '%BANK%' THEN 'BANKING'
+           WHEN upper(TICKER_NAME) LIKE '%FINANC%' THEN 'FINANCE'
+           WHEN upper(TICKER_NAME) LIKE '%FOOD%' THEN 'FOOD'
+           WHEN upper(TICKER_NAME) LIKE '%TV%' OR UPPER(TICKER_NAME) LIKE '%TELEVISION%' THEN 'MEDIA'
+           WHEN upper(TICKER_NAME) LIKE '%ELECTRICALS%' THEN 'ELECTRICALS'
+           WHEN upper(TICKER_NAME) LIKE '%STEEL%' OR UPPER(TICKER_NAME) LIKE '%METAL%' OR UPPER(TICKER_NAME) LIKE '%COPPER%'  THEN 'STEEL'
+           WHEN upper(TICKER_NAME) LIKE '%CEMENTS%' THEN 'CEMENTS'
+           WHEN upper(TICKER_NAME) LIKE '%LOGISTIC%' THEN 'LOGISTICS'
+           WHEN upper(TICKER_NAME) LIKE '%POWER%' THEN 'POWER'
+           WHEN upper(TICKER_NAME) LIKE '%PETRO%' THEN 'CHEMICALS'
+           WHEN upper(TICKER_NAME) LIKE '%TEXTIL%' OR UPPER(TICKER_NAME) LIKE '%YARN%' THEN 'TEXTILE'
+           ELSE 'OTHERS'
+        END  AS INDUSTRY,
+        CASE 
+            WHEN PRICE_2DAY <= 50 THEN 'L1 - <50'
+            WHEN PRICE_2DAY BETWEEN 51 AND 100 THEN 'L2 - 51-100'
+            WHEN PRICE_2DAY BETWEEN 101 AND 200 THEN 'L3 - 101-200'
+            WHEN PRICE_2DAY BETWEEN 201 AND 500 THEN 'L4 - 201-500'
+            WHEN PRICE_2DAY BETWEEN 501 AND 1000 THEN 'L5 - 501-1000'
+            WHEN PRICE_2DAY BETWEEN 1001 AND 5000 THEN 'L6 - 1001-5000'
+            WHEN PRICE_2DAY BETWEEN 5001 AND 10000 THEN 'L7 - 5001-10000'
+            WHEN PRICE_2DAY BETWEEN 10001 AND 15000 THEN 'L8 - 10001-15000'
+            ELSE 'L9 - >15000' -- For values greater than 15000
+          END AS PROCE_LEVEL_CODE
+    from source
+)
+
+select * from renamed
