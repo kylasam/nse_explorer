@@ -1,0 +1,47 @@
+name: run portfolio management script via dbt
+
+on:
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: kylash-edw
+  SERVICE_NAME: default
+  # dbt env variables used in your dbt profiles.yml
+  DBT_PROFILES_DIR: ./
+  DBT_GOOGLE_PROJECT: ${{ vars.DBT_GOOGLE_PROJECT }}
+  DBT_GOOGLE_DATASET: ${{ vars.DBT_GOOGLE_DATASET }}
+  DBT_GOOGLE_KEYFILE: /tmp/google/google-service-account.json
+  
+
+defaults:
+  run:
+    shell: 'bash'
+
+jobs:
+  EDW_PORTFOLIO_BULDER:
+    name : '_DBT_JOBS'
+    runs-on: 'ubuntu-latest'
+
+    steps:
+    - run: mkdir -p "$(dirname $DBT_GOOGLE_KEYFILE)" 
+    - run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" | base64 -d > $DBT_GOOGLE_KEYFILE
+      
+    - name: CHECKOUT_REPO
+      uses: 'actions/checkout@v3'
+
+    - name: PYTHON_SETUP
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10' # install the python version needed
+
+    - name: PYTHON_LIBRARY_SETUP
+      run: |
+        python -m pip install --upgrade pip
+        pip install dbt
+        pip install dbt-bigquery
+
+    - name: DBT_RUN # run main.py
+      run: |-
+        dbt run -m +stg_equity_holdings+
+        dbt run -m +rpt_5paisa_wallet_balance+
+        dbt run -m +rpt_investments_bonds+ +rpt_investments_channels+ +rpt_investments_chit+ +rpt_investments_fd+ rpt_investments_gold +rpt_investments_insurances+ +rpt_investments_lands+ +rpt_investments_thangamayil_gold_rates+ +rpt_interest_payouts_monthly+
