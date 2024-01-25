@@ -44,4 +44,4 @@ jobs:
       run: |-
         dbt run -m +stg_equity_holdings+
         dbt run -m +rpt_5paisa_wallet_balance+
-        dbt run -m +rpt_investments_bonds+ +rpt_investments_channels+ +rpt_investments_chit+ +rpt_investments_fd+ rpt_investments_gold +rpt_investments_insurances+ +rpt_investments_lands+ +rpt_investments_thangamayil_gold_rates+ +rpt_interest_payouts_monthly+
+        dbt run -m +rpt_investments_bonds+ +rpt_investments_channels+ +rpt_investments_chit+ +rpt_investments_fd+ rpt_investments_gold +rpt_investments_insurances+ +rpt_investments_lands+ +rpt_investments_thangamayil_gold_rates+ +rpt_interest_payouts_monthly+ +rpt_expenses_monthly+
