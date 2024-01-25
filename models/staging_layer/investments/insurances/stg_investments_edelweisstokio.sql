@@ -7,7 +7,7 @@ select
        CASE 
            WHEN md.month_start_date > '2025-08-01' then 0
            ELSE coalesce(sc.premium_amount, 0) 
-        END as premium_amount,
+        END as amount,
         current_timestamp() as edw_publn_id
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
 left join
@@ -22,3 +22,4 @@ left join
     ) sc
     on md.month_start_date = sc.premium_dates
 order by 2
+

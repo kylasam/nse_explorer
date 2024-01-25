@@ -7,7 +7,7 @@ select
            ELSE '0000000000'
            END as policy_number,
        'IffcoTokio 3 years Bike insurance' as plan_name,
-       coalesce(sc.premium_amount, 0) as premium_amount,
+       coalesce(sc.premium_amount, 0) as amount,
        current_timestamp() as edw_publn_id
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
 left join
@@ -22,3 +22,4 @@ left join
     ) sc
     on md.month_start_date = sc.premium_dates
 order by 2
+

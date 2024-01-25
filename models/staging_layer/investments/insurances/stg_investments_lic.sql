@@ -4,7 +4,7 @@ select
        md.month_start_date, 
        767955225 as policy_number,
        04117765 as agency_code,
-       coalesce(sc.premium_amount, 0) as premium_amount,
+       coalesce(sc.premium_amount, 0) as amount,
        current_timestamp() as edw_publn_id
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
 left join
@@ -19,3 +19,4 @@ left join
     ) sc
     on md.month_start_date = sc.premium_dates
 order by 2
+
