@@ -1,20 +1,28 @@
 select
-    src_sys_id,
-    sum(amount) as premium_amount
+    start_dt,
+    sum(amount) as premium_amount,
+    insurer_type,
+    end_dt
     from(
 select 
-        src_sys_id,
+        min(month_start_date) as start_dt,
         amount,
+        'edelweisstokio' as insurer_type,
+        max(month_start_date) as end_dt,
 
 FROM
 {{ ref("stg_investments_edelweisstokio") }}
-where current_date() >= month_start_date
+where amount > 0
+group by 2,3
 UNION ALL
 select 
-        src_sys_id,
+        min(month_start_date) as start_dt,
         amount,
+        'lic' as insurer_type,
+        max(month_start_date) as end_dt,
 
 FROM
 {{ ref("stg_investments_lic") }}
-where current_date() >= month_start_date)
-group by 1
+where amount > 0
+group by 2,3)
+group by 1,3,4
