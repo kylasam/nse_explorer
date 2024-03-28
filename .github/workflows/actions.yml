@@ -39,6 +39,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install dbt
         pip install dbt-bigquery
+        pip install pyarrow
 
     - name: DBT_RUN # run main.py
       run: |-
