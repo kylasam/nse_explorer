@@ -5,7 +5,8 @@ select
         district,
         town,
         latitude,
-        longitude
+        longitude,
+        geo_loca
 FROM
 {{ ref("investment_lands") }}
 order by 1
