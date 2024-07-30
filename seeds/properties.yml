@@ -21,7 +21,7 @@ seeds:
         town: STRING
         latitude: NUMERIC
         longitude: NUMERIC
-      delimiter: "|"
+      delimiter: ","
   - name: equity_5paisa_script_codes
     config:
       quote_columns: false

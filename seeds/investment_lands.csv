@@ -1,4 +1,4 @@
-investment_code,property_type,area_in_cents,district,town,latitude,longitude,geo_loca
-8,commercial(site),37,Trippur,Udumalpet,10.600846,77.212716,"10.600846,77.212716"
-8,Agriculture land,100.009,Erode,Gobichettipalayam,11.45496,77.4422,"11.45496,77.4422"
-8,commercial(site),3.98,Erode,Gobichettipalayam,,11.3434343,77.35353,"11.3434343,77.35353"
+investment_code,property_type,area_in_cents,district,town,latitude,longitude
+8,commercial(site),37,Trippur,Udumalpet,10.600846,77.212716
+8,Agriculture land,100.009,Erode,Gobichettipalayam,11.45496,77.4422
+8,commercial(site),3.98,Erode,Gobichettipalayam,11.3434343,77.35353
