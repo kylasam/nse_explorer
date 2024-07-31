@@ -6,7 +6,7 @@ select
         town,
         latitude,
         longitude,
-        geo_loca
+        CONCAT(latitude, ",", longitude) as geo_loca
 FROM
 {{ ref("investment_lands") }}
 order by 1
