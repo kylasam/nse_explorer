@@ -53,3 +53,13 @@ select
             {{ ref("stg_investments_sharath_chit") }}
             where amount >0 
         GROUP BY 1 ) where chit_end_dt >= CURRENT_DATE()
+UNION ALL
+select 
+      'veluchamy_shakti' as chitters,
+      sum(amount) as total_chit_amt,
+      min(month_start_date) as chit_start_dt,
+      max(month_start_date) as chit_end_dt
+       from 
+            {{ ref("stg_investments_velusamy_shakti_chit") }}
+            where amount >0 
+        GROUP BY 1 ) where chit_end_dt >= CURRENT_DATE()

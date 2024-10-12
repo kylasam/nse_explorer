@@ -25,3 +25,25 @@ FROM
 {{ ref("stg_investments_lic") }}
 where amount > 0
 group by 3)
+UNION ALL
+select 
+        min(month_start_date) as start_dt,
+        sum(amount) as premium_amount,
+        'aviva' as insurer_type,
+        max(month_start_date) as end_dt,
+
+FROM
+{{ ref("stg_investments_aviva") }}
+where amount > 0
+group by 3)
+UNION ALL
+select 
+        min(month_start_date) as start_dt,
+        sum(amount) as premium_amount,
+        'pnbmetlife' as insurer_type,
+        max(month_start_date) as end_dt,
+
+FROM
+{{ ref("stg_investments_pnbmetlife") }}
+where amount > 0
+group by 3)

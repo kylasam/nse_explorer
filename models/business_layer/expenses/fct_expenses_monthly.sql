@@ -113,3 +113,24 @@ select
             expense_amt,
        'Gobi Home Expenses' as expense_type
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
+UNION ALL
+select
+   6 as investment_code,
+   month_start_date,
+   amount as expense_amt,
+   'aviva' as expense_type
+FROM {{ ref("stg_investments_aviva") }}
+UNION ALL
+select
+   5 as investment_code,
+   month_start_date,
+   amount as expense_amt,
+   'Velusamy Shakti chit' as expense_type
+FROM {{ ref("stg_investments_velusamy_shakti_chit") }}
+UNION ALL
+select
+   6 as investment_code,
+   month_start_date,
+   amount as expense_amt,
+   'pnbmetlife' as expense_type
+FROM {{ ref("stg_investments_pnbmetlife") }}
