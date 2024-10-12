@@ -52,7 +52,7 @@ select
        from 
             {{ ref("stg_investments_sharath_chit") }}
             where amount >0 
-        GROUP BY 1 ) where chit_end_dt >= CURRENT_DATE()
+        GROUP BY 1  where chit_end_dt >= CURRENT_DATE()
 UNION ALL
 select 
       'veluchamy_shakti' as chitters,
