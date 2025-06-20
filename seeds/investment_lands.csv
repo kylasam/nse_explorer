@@ -3,3 +3,4 @@ investment_code,property_type,area_in_cents,district,town,latitude,longitude
 8,Agriculture land,100.009,Erode,Gobichettipalayam,11.45496,77.4422
 8,commercial(site),3.98,Erode,Gobichettipalayam,11.3434343,77.35353
 8,commercial(plot),2.87,Erode,Polavakkalipalayam,11.450453,77.481073
+10,House,2.37,Berlin,Tempelhof-Schöneberg,52.406322, 13.405404
