@@ -31,6 +31,14 @@ select
        'Mother Kind Trust' as expense_type
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
 UNION ALL
+
+SELECT
+       100 AS investment_code,
+       md.month_start_date,
+       40000 AS expense_amt,
+       'IDBI Loan' AS expense_type
+FROM {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
+UNION ALL
 select 
        11 as investment_code,
        md.month_start_date,
