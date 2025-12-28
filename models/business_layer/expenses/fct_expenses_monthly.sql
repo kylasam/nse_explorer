@@ -10,6 +10,17 @@ select
 from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
 UNION ALL
 select 
+       10 as investment_code,
+       md.month_start_date,
+       CASE WHEN md.month_start_date >= '2022-10-01'
+            THEN 500 
+            ELSE 0
+        End as
+            expense_amt,
+       'Pournami Poojai Karuchikumara swamy temple' as expense_type
+from {{ source("MONTHLY_EXPENSES_SOURCE", "dates_mnthly") }} md
+UNION ALL
+select 
        11 as investment_code,
        md.month_start_date,
        CASE WHEN md.month_start_date >= '2022-04-01'
