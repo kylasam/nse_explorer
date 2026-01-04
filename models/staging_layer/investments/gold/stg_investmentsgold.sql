@@ -7,6 +7,7 @@ select
            WHEN md.month_start_date >= '2020-09-01' and md.month_start_date <= '2021-07-01' then 25000
            WHEN md.month_start_date >= '2021-08-01' and md.month_start_date <= '2022-06-01' then 35000
            WHEN md.month_start_date >= '2023-02-01' and md.month_start_date <= '2023-12-01' then 40000
+           WHEN md.month_start_date >= '2025-01-01' and md.month_start_date <= '2025-10-01' then 60000
            ELSE 0 
         END as chit_amount,
         current_timestamp() as edw_publn_id
