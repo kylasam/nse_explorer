@@ -14,7 +14,7 @@ left join
             15000 as premium_amount
         from
             unnest(
-                generate_date_array('2016-03-01', '2065-05-01', interval 12 month)
+                generate_date_array('2016-05-01', '2065-05-01', interval 12 month)
             ) dates
     ) sc
     on md.month_start_date = sc.premium_dates
